@@ -215,7 +215,7 @@ middleware:
 | -------------- | ------------------------------------------------------------ |--------------------------------------------------------------------|
 | fluent         | Fluent                                                       | An instance of [Fluent][moebius-fluent].                           |
 | translator     | Translator                                                   | An instance of [Translator][moebius-fluent].                                       |
-| translate \| t | (**messageId**: string, **context**: TranslationContext) => string | Translation function bound to the automatically detected user locale. Shorthand alias "t" is also available. |
+| translate \| t | (**messageId**: string, **context?**: TranslationContext) => string | Translation function bound to the automatically detected user locale. Shorthand alias "t" is also available. |
 
 Make sure to use `FluentContextFlavor` to extend your
 application context in order for typings to work correctly:

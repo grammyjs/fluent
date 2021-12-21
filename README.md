@@ -1,8 +1,6 @@
 
 # @moebius/grammy-fluent
 
----
-
 <!-- NPM Badge -->
 <a href="https://badge.fury.io/js/@moebius%2Fgrammy-fluent">
   <img src="https://badge.fury.io/js/@moebius%2Fgrammy-fluent.svg" alt="npm version" height="18">
@@ -24,7 +22,7 @@ have found that Fluent has all the required features and
 at the same time provides a very user-friendly message format,
 which is very important for non-dev people (i.e. translators).
 
-It is also supported by Mozilla Foundation a well-respected
+It is also supported by **Mozilla Foundation**, a well-respected
 leader in world of OpenSource and the Web standards.
 
 ### Message format example
@@ -86,7 +84,6 @@ welcome =
   code is also correct and type safe,
 
 - **Enables amazing type completion** for your IDE
-
   (even if you are not using TypeScript) thanks to the
   provided typing declarations,
 
@@ -108,7 +105,7 @@ npm install --save @moebius/grammy-fluent @moebius/fluent
 
 ## Prior knowledge
 
-> It is highly advisable to read [@moebius/fluent]([moebius-fluent])
+> It is highly advisable to read [@moebius/fluent][moebius-fluent]
 > as well as [fluent.js][fluent-js] libraries documentation
 > before using this library.
 
@@ -201,12 +198,12 @@ bot.use(useFluent({
 The following options are supported:
 
 | Name             | Type             | Description                                                  |
-| ---------------- | ---------------- | ------------------------------------------------------------ |
-| fluent *****     | Fluent           | A pre-configured instance of [Fluent][moebius-fluent] to use. |
+|------------------| ---------------- | ------------------------------------------------------------ |
+| fluent *         | Fluent           | A pre-configured instance of [Fluent][moebius-fluent] to use. |
 | defaultLocale    | LocaleId         | A locale ID to use by default. This is used when locale negotiator returns an empty result. The default value is: "*en*". |
 | localeNegotiator | LocaleNegotiator | An optional function that determines a locale to use. Check the [locale negotiation](#locale-negotiation) section below for more details. |
 
-> Please, see [@moebius/fluent documentation]([moebius-fluent])
+> Please, see [@moebius/fluent documentation][moebius-fluent]
   for all the Fluent configuration instructions.
 
 ### Context helpers
@@ -261,7 +258,7 @@ in users session:
 ```typescript
 async function myLocaleNegotiator(context: Context) {
   return (
-    await context.session.languageId ||
+    (await context.session).languageId ||
     context.from.language_code ||
     'en'
   );

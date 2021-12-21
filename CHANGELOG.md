@@ -1,5 +1,5 @@
 
-# 0.0.2 (minor release)
+# v0.0.2 (minor release)
 
 - introduced customized locale negotiation via `LocaleNegotiator`
 - added `localeNegotiator` property
@@ -8,6 +8,6 @@
 - updated and extended the documentation
 
 
-# 0.0.1 (initial release)
+# v0.0.1 (initial release)
 
 Initial release.

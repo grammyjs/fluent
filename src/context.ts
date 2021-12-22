@@ -6,7 +6,7 @@ import { Context } from 'grammy';
 export interface FluentContextFlavor {
   fluent: Fluent;
   translator: Translator;
-  translate: (messageId: string, context: TranslationContext) => string;
+  translate: (messageId: string, context?: TranslationContext) => string;
   t: (messageId: string, context?: TranslationContext) => string;
 }
 

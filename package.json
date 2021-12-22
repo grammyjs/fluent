@@ -1,6 +1,6 @@
 {
   "name": "@moebius/grammy-fluent",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Fluent localization system integration for grammY Telegram bot framework",
   "scripts": {
     "build": "rm -rf ./dist && tsc -p ./tsconfig.lib.json",
@@ -38,6 +38,7 @@
     "email": "slava@fomin.io",
     "url": "https://github.com/slavafomin"
   },
+  "contributors": [],
   "engines": {
     "node": ">=12"
   },
@@ -48,7 +49,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@moebius/fluent": "0.0.2",
+    "@moebius/fluent": "0.1.0",
     "grammy": "^1.5.0"
   },
   "dependencies": {},

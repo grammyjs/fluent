@@ -12,7 +12,7 @@
 </a>
 
 [Fluent][fluent-website] localization system integration
-for [grammY]([grammy-website]) Telegram bot framework.
+for [grammY][grammy-website] Telegram bot framework.
 
 
 ## Why Fluent?
@@ -66,6 +66,9 @@ welcome =
 
 - Automatically uses translation locale based on the language
   selected by the user in their Telegram settings,
+
+- Uses an **automatic language negotiation**, so the best
+  possible language will be automatically picked for each user,
 
 - Gives you **full access to `Fluent` instance**, so you can
   [configure it][moebius-fluent] yourself as you see fit,
@@ -155,6 +158,15 @@ welcome =
     // around placeables
     useIsolating: false,
   },
+});
+
+// You can also load translations from files
+await fluent.addTranslation({
+  locales: 'ru',
+  filePath: [
+    `${__dirname}/feature-1/translation.ru.ftl`,
+    `${__dirname}/feature-2/translation.ru.ftl`
+  ],
 });
 
 // Add fluent middleware to the bot
@@ -294,6 +306,11 @@ bot.use(useFluent({
 
 It will use the locale that is already stored in the user
 session by the i18n plugin.
+
+
+## Contributors
+
+- [Slava Fomin II](https://github.com/slavafomin) (author)
 
 
 ## License (MIT)

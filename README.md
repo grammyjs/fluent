@@ -67,6 +67,9 @@ welcome =
 - Automatically uses translation locale based on the language
   selected by the user in their Telegram settings,
 
+- Uses an **automatic language negotiation**, so the best
+  possible language will be automatically picked for each user,
+
 - Gives you **full access to `Fluent` instance**, so you can
   [configure it][moebius-fluent] yourself as you see fit,
 

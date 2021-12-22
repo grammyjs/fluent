@@ -49,7 +49,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@moebius/fluent": "0.0.3",
+    "@moebius/fluent": "0.1.0",
     "grammy": "^1.5.0"
   },
   "dependencies": {},

@@ -1,4 +1,10 @@
 
+# v0.1.0 (minor release)
+
+- updated `@moebius/fluent` dependency to the latest version
+- automatic language negotiation is now supported
+
+
 # v0.0.3 (patch release)
 
 - updated `@moebius/fluent` dependency to the latest version

@@ -1,6 +1,6 @@
 {
   "name": "@moebius/grammy-fluent",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Fluent localization system integration for grammY Telegram bot framework",
   "scripts": {
     "build": "rm -rf ./dist && tsc -p ./tsconfig.lib.json",

@@ -38,6 +38,7 @@
     "email": "slava@fomin.io",
     "url": "https://github.com/slavafomin"
   },
+  "contributors": [],
   "engines": {
     "node": ">=12"
   },

@@ -305,6 +305,11 @@ It will use the locale that is already stored in the user
 session by the i18n plugin.
 
 
+## Contributors
+
+- [Slava Fomin II](https://github.com/slavafomin) (author)
+
+
 ## License (MIT)
 
 Copyright © 2021 Slava Fomin II

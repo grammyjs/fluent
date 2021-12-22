@@ -12,7 +12,7 @@
 </a>
 
 [Fluent][fluent-website] localization system integration
-for [grammY]([grammy-website]) Telegram bot framework.
+for [grammY][grammy-website] Telegram bot framework.
 
 
 ## Why Fluent?

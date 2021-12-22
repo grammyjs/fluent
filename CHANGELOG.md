@@ -1,4 +1,16 @@
 
+# v0.2.0 (major release)
+
+## Breaking change
+
+- context structure has changed to minimize
+  any possible name clashes
+
+## New features
+
+- introduced `renegotiateLocale()` helper function
+
+
 # v0.1.1 (patch release)
 
 - translation context made optional

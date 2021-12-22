@@ -4,8 +4,11 @@ import { Context } from 'grammy';
 
 
 export interface FluentContextFlavor {
-  fluent: Fluent;
-  translator: Translator;
+  fluent: {
+    instance: Fluent;
+    translator: Translator;
+    renegotiateLocale: () => Promise<void>;
+  };
   translate: (messageId: string, context?: TranslationContext) => string;
   t: (messageId: string, context?: TranslationContext) => string;
 }
@@ -18,20 +21,32 @@ export function extendContext(options: {
   context: Context;
   fluent: Fluent;
   translator: Translator;
+  renegotiateLocale: () => Promise<void>;
 
 }): void {
 
-  const { context, fluent, translator } = options;
+  const {
+    context,
+    fluent,
+    translator,
+    renegotiateLocale,
+
+  } = options;
 
   const translate = translator.translate
     .bind(translator)
   ;
 
-  Object.assign(context, <FluentContextFlavor> {
-    fluent,
-    translator,
+  const contextExtension: FluentContextFlavor = {
+    fluent: {
+      instance: fluent,
+      translator,
+      renegotiateLocale,
+    },
     translate,
     t: translate,
-  });
+  };
+
+  Object.assign(context, contextExtension);
 
 }

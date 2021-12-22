@@ -223,11 +223,13 @@ The following options are supported:
 The following helpers are added to the bots' context by the
 middleware:
 
-| Name           | Type                                                         | Description                                                        |
-| -------------- | ------------------------------------------------------------ |--------------------------------------------------------------------|
-| fluent         | Fluent                                                       | An instance of [Fluent][moebius-fluent].                           |
-| translator     | Translator                                                   | An instance of [Translator][moebius-fluent].                                       |
-| translate \| t | (**messageId**: string, **context?**: TranslationContext) => string | Translation function bound to the automatically detected user locale. Shorthand alias "t" is also available. |
+| Name                     | Type                                                         | Description                                                  |
+| ------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| fluent                   | Object                                                       | Fluent context namespace object, see the individual properties below. |
+| fluent.instance          | Fluent                                                       | An instance of [Fluent][moebius-fluent].                     |
+| fluent.translator        | Translator                                                   | An instance of [Translator][moebius-fluent].                 |
+| fluent.renegotiateLocale | () => Promise<void>                                          | You can manually trigger additional locale negotiation by calling this method. This could be useful if locale negotiation conditions has changed and new locale must be applied (e.g. user has changed the language and you need to display an answer in new locale). |
+| translate \| t           | (**messageId**: string, **context?**: TranslationContext) => string | Translation function bound to the automatically detected user locale. Shorthand alias "t" is also available. |
 
 Make sure to use `FluentContextFlavor` to extend your
 application context in order for typings to work correctly:
@@ -253,6 +255,13 @@ message translation.
 
 The default negotiator will detect locale based on users
 Telegram language setting.
+
+> Locale negotiation normally happens only once during
+> Telegram update processing. However, you can call
+> `await context.fluent.renegotiateLocale()` to call the
+> negotiator again and determine the new locale. This is
+> useful if the locale changes during single update
+> processing.
 
 #### API
 

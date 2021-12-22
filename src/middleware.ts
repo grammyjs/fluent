@@ -1,5 +1,5 @@
 
-import { Fluent, LocaleId } from '@moebius/fluent';
+import { Fluent, LocaleId, Translator } from '@moebius/fluent';
 import { Context, Middleware, NextFunction } from 'grammy';
 
 import { extendContext } from './context';
@@ -39,25 +39,37 @@ export function useFluent(
 
   ): Promise<void> {
 
-    // Determining the locale to use for translations
-    const locale = (
-      await localeNegotiator?.(context) ||
-      defaultLocale
-    );
+    let locale: LocaleId;
+    let translator: Translator;
 
-    // Getting the translator for the detected locale
-    const translator = fluent.getTranslator({
-      locales: locale,
-    });
+    await negotiateLocale();
 
-    // Adding helpers to the bots context
-    extendContext({
-      context,
-      fluent,
-      translator,
-    });
 
     await next();
+
+
+    async function negotiateLocale() {
+
+      // Determining the locale to use for translations
+      locale = (
+        await localeNegotiator?.(context) ||
+        defaultLocale
+      );
+
+      // Getting the translator for the detected locale
+      translator = fluent.getTranslator({
+        locales: locale,
+      });
+
+      // Adding helpers to the bots context
+      extendContext({
+        context,
+        fluent,
+        translator,
+        renegotiateLocale: negotiateLocale,
+      });
+
+    }
 
   }
 

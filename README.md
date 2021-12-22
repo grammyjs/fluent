@@ -311,7 +311,7 @@ session by the i18n plugin.
 ## Contributors
 
 - [Slava Fomin II](https://github.com/slavafomin) (author)
-
+- [dcdunkan](https://github.com/dcdunkan)
 
 ## License (MIT)
 

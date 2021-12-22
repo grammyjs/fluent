@@ -38,7 +38,13 @@
     "email": "slava@fomin.io",
     "url": "https://github.com/slavafomin"
   },
-  "contributors": [],
+  "contributors": [
+    {
+      "name": "dcdunkan",
+      "email": "dcdunkan@gmail.com",
+      "url": "http://github.com/dcdunkan"
+    }
+  ],
   "engines": {
     "node": ">=12"
   },
@@ -60,3 +66,4 @@
     "typescript": "^4.5.4"
   }
 }
+

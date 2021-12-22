@@ -157,6 +157,15 @@ welcome =
   },
 });
 
+// You can also load translations from files
+await fluent.addTranslation({
+  locales: 'ru',
+  filePath: [
+    `${__dirname}/feature-1/translation.ru.ftl`,
+    `${__dirname}/feature-2/translation.ru.ftl`
+  ],
+});
+
 // Add fluent middleware to the bot
 bot.use(useFluent({
   fluent,

@@ -1,4 +1,9 @@
 
+# v0.0.3 (patch release)
+
+- updated `@moebius/fluent` dependency to the latest version
+
+
 # v0.0.2 (minor release)
 
 - introduced customized locale negotiation via `LocaleNegotiator`

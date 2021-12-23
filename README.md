@@ -30,18 +30,19 @@ leader in world of OpenSource and the Web standards.
 Consider the following message format example and see for yourself:
 
 ```fluent
--brand-name = Super Project
+-project-name = Super Project
 
-welcome =
-  Welcome, {$name}, to the {-brand-name}!
-  Your balance is: {
-    NUMBER($value, maximumFractionDigits: 2)
-  }
-  You have { NUMBER($applesCount) ->
-    [0] no apples
-    [one] {$applesCount} apple
-    *[other] {$applesCount} apples
-  }
+welcome = Welcome, {$name}, to the {-project-name}!
+  .balance =
+    Your balance is: {
+      NUMBER($value, maximumFractionDigits: 2)
+    }
+  .apples-count =
+    You have { NUMBER($applesCount) ->
+      [0] no apples
+      [one] {$applesCount} apple
+      *[other] {$applesCount} apples
+    }
 ```
 
 ### Fluent features

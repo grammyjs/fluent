@@ -1,4 +1,10 @@
 
+# v0.3.0 (minor release)
+
+- updated `@moebius/fluent` dependency to the latest version
+- message attributes are now supported
+
+
 # v0.2.0 (major release)
 
 ## Breaking change

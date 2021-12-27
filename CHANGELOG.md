@@ -1,4 +1,19 @@
 
+# v0.4.0 (major release)
+
+## Breaking change
+
+- removed `context.fluent.translator` property
+
+## New features
+
+- introduced `context.fluent.useLocale()` method
+
+- Fluent library dependency updated to the latest version,
+  this introduces better locale negotiation and
+  a locale fallback feature
+
+
 # v0.3.0 (minor release)
 
 - updated `@moebius/fluent` dependency to the latest version

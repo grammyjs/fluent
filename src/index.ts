@@ -1,14 +1,11 @@
 
 export {
-  useFluent,
+  FluentContextFlavor,
   GrammyFluentOptions,
+  TranslateFunction,
+  useFluent,
 
 } from './middleware';
-
-export {
-  FluentContextFlavor,
-
-} from './context';
 
 export {
   LocaleNegotiator,

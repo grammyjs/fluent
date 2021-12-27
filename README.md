@@ -224,13 +224,13 @@ The following options are supported:
 The following helpers are added to the bots' context by the
 middleware:
 
-| Name                     | Type                                                         | Description                                                  |
-| ------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| fluent                   | Object                                                       | Fluent context namespace object, see the individual properties below. |
-| fluent.instance          | Fluent                                                       | An instance of [Fluent][moebius-fluent].                     |
-| fluent.translator        | Translator                                                   | An instance of [Translator][moebius-fluent].                 |
-| fluent.renegotiateLocale | () => Promise<void>                                          | You can manually trigger additional locale negotiation by calling this method. This could be useful if locale negotiation conditions has changed and new locale must be applied (e.g. user has changed the language and you need to display an answer in new locale). |
-| translate \| t           | (**messageId**: string, **context?**: TranslationContext) => string | Translation function bound to the automatically detected user locale. Shorthand alias "t" is also available. |
+| Name                       | Type                                                         | Description                                                  |
+| -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| fluent                     | Object                                                       | Fluent context namespace object, see the individual properties below. |
+| fluent.instance            | Fluent                                                       | An instance of [Fluent][moebius-fluent].                     |
+| fluent.renegotiateLocale() | () => Promise<void>                                          | You can manually trigger additional locale negotiation by calling this method. This could be useful if locale negotiation conditions has changed and new locale must be applied (e.g. user has changed the language and you need to display an answer in new locale). |
+| fluent.useLocale()         | (localeId: string) => void                                   | Sets the specified locale to be used for future translations. Effect lasts only for the duration of current update and is not preserved. Could be used to change the translation locale in the middle of update processing (e.g. when user changes the language). |
+| translate \| t             | (**messageId**: string, **context?**: TranslationContext) => string | Translation function bound to the current locale. Shorthand alias "t" is also available. |
 
 Make sure to use `FluentContextFlavor` to extend your
 application context in order for typings to work correctly:
@@ -312,6 +312,27 @@ bot.use(useFluent({
     (await context.session).__language_code
   ),
 }));
+
+async function handleLocaleChange(context: MyAppContext) {
+
+  // Getting locale from button's callback data
+  const newLocale = context.callbackQuery;
+
+  // Saving new locale to the session
+  (await context.session).__language_code = newLocale;
+
+  // Making sure that callback query answer will be
+  // in new locale
+  await context.fluent.useLocale(locale);
+
+  // Sending an answer to the callback query
+  await context.answerCallbackQuery(
+    context.t('settings_language-changed', {
+      language: context.t(`locale_${locale}`)
+    })
+  );
+
+}
 ```
 
 It will use the locale that is already stored in the user
@@ -347,8 +368,8 @@ SOFTWARE.
 
 
 
-  [grammy-website]: https://grammy.dev/
-  [fluent-website]: https://projectfluent.org/
-  [fluent-js]: https://github.com/projectfluent/fluent.js/
-  [moebius-fluent]: https://github.com/the-moebius/fluent
-  [i18n-plugin]: https://github.com/grammyjs/i18n
+[grammy-website]: https://grammy.dev/
+[fluent-website]: https://projectfluent.org/
+[fluent-js]: https://github.com/projectfluent/fluent.js/
+[moebius-fluent]: https://github.com/the-moebius/fluent
+[i18n-plugin]: https://github.com/grammyjs/i18n

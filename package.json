@@ -4,7 +4,7 @@
   "description": "Fluent localization system integration for grammY Telegram bot framework",
   "scripts": {
     "build": "rm -rf ./dist && tsc -p ./tsconfig.lib.json",
-    "prepublishOnly": "npm run build",
+    "prepack": "npm run build",
     "test": ":"
   },
   "main": "dist/index.js",

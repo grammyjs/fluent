@@ -5,10 +5,10 @@ import { Context, Middleware, NextFunction } from 'grammy';
 import { defaultLocaleNegotiator, LocaleNegotiator } from './locale-negotiator';
 
 
-export interface GrammyFluentOptions {
+export interface GrammyFluentOptions<ContextType extends Context = Context> {
   fluent: Fluent;
   defaultLocale?: LocaleId;
-  localeNegotiator?: LocaleNegotiator;
+  localeNegotiator?: LocaleNegotiator<ContextType>;
 }
 
 export type TranslateFunction = (
@@ -29,10 +29,10 @@ export interface FluentContextFlavor {
 const fallbackLocale = 'en';
 
 
-export function useFluent(
-  options: GrammyFluentOptions
+export function useFluent<ContextType extends Context = Context>(
+  options: GrammyFluentOptions<ContextType>
 
-): Middleware {
+): Middleware<ContextType> {
 
   const {
     fluent,
@@ -47,7 +47,7 @@ export function useFluent(
    * to the context object.
    */
   return async function fluentMiddleware(
-    context: Context,
+    context: ContextType,
     next: NextFunction
 
   ): Promise<void> {

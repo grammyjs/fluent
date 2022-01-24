@@ -29,9 +29,10 @@
     "translation"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/moebius/fluent#readme",
+  "homepage": "https://github.com/the-moebius/grammy-fluent#readme",
+  "repository": "github:the-moebius/grammy-fluent",
   "bugs": {
-    "url": "https://github.com/moebius/fluent/issues"
+    "url": "https://github.com/the-moebius/grammy-fluent/issues"
   },
   "author": {
     "name": "Slava Fomin II",
@@ -55,14 +56,14 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@moebius/fluent": "0.3.0",
+    "@moebius/fluent": "0.3.1",
     "grammy": "^1.5.0"
   },
   "dependencies": {},
   "devDependencies": {
-    "@types/node": "^12.20.38",
+    "@types/node": "^12.20.42",
     "npm-run-all": "^4.1.5",
     "ts-node": "^10.4.0",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.5"
   }
 }

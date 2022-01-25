@@ -1,10 +1,10 @@
 {
-  "name": "@moebius/grammy-fluent",
-  "version": "0.4.1",
+  "name": "@grammyjs/fluent",
+  "version": "1.0.0",
   "description": "Fluent localization system integration for grammY Telegram bot framework",
   "scripts": {
     "build": "rm -rf ./dist && tsc -p ./tsconfig.lib.json",
-    "prepublishOnly": "npm run build",
+    "prepack": "npm run build",
     "test": ":"
   },
   "main": "dist/index.js",
@@ -29,10 +29,10 @@
     "translation"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/the-moebius/grammy-fluent#readme",
-  "repository": "github:the-moebius/grammy-fluent",
+  "homepage": "https://github.com/grammyjs/fluent#readme",
+  "repository": "github:grammyjs/fluent",
   "bugs": {
-    "url": "https://github.com/the-moebius/grammy-fluent/issues"
+    "url": "https://github.com/grammyjs/fluent/issues"
   },
   "author": {
     "name": "Slava Fomin II",
@@ -56,7 +56,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@moebius/fluent": "0.3.1",
+    "@moebius/fluent": "^1.0.0",
     "grammy": "^1.5.0"
   },
   "dependencies": {},

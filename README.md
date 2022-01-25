@@ -1,9 +1,9 @@
 
-# @moebius/grammy-fluent
+# @grammyjs/fluent
 
 <!-- NPM Badge -->
-<a href="https://badge.fury.io/js/@moebius%2Fgrammy-fluent">
-  <img src="https://badge.fury.io/js/@moebius%2Fgrammy-fluent.svg" alt="npm version" height="18">
+<a href="https://badge.fury.io/js/@grammyjs%2Ffluent">
+  <img src="https://badge.fury.io/js/@grammyjs%2Ffluent.svg" alt="npm version" height="18">
 </a>
 
 <!-- MIT License Badge -->
@@ -103,7 +103,7 @@ welcome = Welcome, {$name}, to the {-project-name}!
 Install the libraries:
 
 ```shell
-npm install --save @moebius/grammy-fluent @moebius/fluent
+npm install --save @grammyjs/fluent @moebius/fluent
 ```
 
 
@@ -119,7 +119,7 @@ npm install --save @moebius/grammy-fluent @moebius/fluent
 ```typescript
 import { Bot, Context } from 'grammy';
 import { Fluent } from '@moebius/fluent';
-import { useFluent, FluentContextFlavor } from '@moebius/grammy-fluent';
+import { useFluent, FluentContextFlavor } from '@grammyjs/fluent';
 
 // Extend your application context type with the provided
 // flavor interface
@@ -368,8 +368,8 @@ SOFTWARE.
 
 
 
-[grammy-website]: https://grammy.dev/
-[fluent-website]: https://projectfluent.org/
-[fluent-js]: https://github.com/projectfluent/fluent.js/
-[moebius-fluent]: https://github.com/the-moebius/fluent
-[i18n-plugin]: https://github.com/grammyjs/i18n
+  [grammy-website]: https://grammy.dev/
+  [fluent-website]: https://projectfluent.org/
+  [fluent-js]: https://github.com/projectfluent/fluent.js/
+  [moebius-fluent]: https://github.com/the-moebius/fluent
+  [i18n-plugin]: https://github.com/grammyjs/i18n

@@ -1,4 +1,7 @@
 
+import { useFluent } from './middleware';
+
+
 export {
   FluentContextFlavor,
   GrammyFluentOptions,

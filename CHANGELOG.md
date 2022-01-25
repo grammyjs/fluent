@@ -1,4 +1,12 @@
 
+# v1.0.0 (major release)
+
+## Breaking change
+
+- package moved to the `grammyjs` organization
+- released as a first stable version
+
+
 # v0.4.0 (major release)
 
 ## Breaking change

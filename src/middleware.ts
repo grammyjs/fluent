@@ -91,7 +91,7 @@ export function useFluent(
     async function negotiateLocale() {
 
       // Determining the locale to use for translations
-      const locale = (
+      const locale = <LocaleId> (
         await localeNegotiator?.(context) ||
         defaultLocale
       );

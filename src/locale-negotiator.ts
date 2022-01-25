@@ -6,13 +6,17 @@ import { Context } from 'grammy';
 export type LocaleNegotiator<
   ContextType extends Context = Context
 
-> = (context: ContextType) => (LocaleId | PromiseLike<LocaleId>);
+> = (context: ContextType) => (
+  | LocaleId
+  | undefined
+  | PromiseLike<LocaleId | undefined>
+);
 
 
 /**
  * Default implementation of locale negotiator
  * that returns locale specified in users Telegram settings.
  */
-export function defaultLocaleNegotiator(context: Context) {
-  return context.from?.language_code;
-}
+export const defaultLocaleNegotiator: LocaleNegotiator = (
+  context => context.from?.language_code
+);

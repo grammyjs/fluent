@@ -1,4 +1,9 @@
 
+# v1.0.2 (patch release)
+
+Improved `LocaleNegotiator` typing.
+
+
 # v1.0.1 (patch release)
 
 Fixed possible undefined property access bug in

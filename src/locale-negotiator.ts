@@ -14,5 +14,5 @@ export type LocaleNegotiator<
  * that returns locale specified in users Telegram settings.
  */
 export function defaultLocaleNegotiator(context: Context) {
-  return context.from.language_code;
+  return context.from?.language_code;
 }

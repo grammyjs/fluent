@@ -1,4 +1,10 @@
 
+# v1.0.1 (patch release)
+
+Fixed possible undefined property access bug in
+`defaultLocaleNegotiator`.
+
+
 # v1.0.0 (major release)
 
 ## Breaking change

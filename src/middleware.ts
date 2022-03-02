@@ -5,7 +5,9 @@ import { Context, Middleware, NextFunction } from 'grammy';
 import { defaultLocaleNegotiator, LocaleNegotiator } from './locale-negotiator';
 
 
-export interface GrammyFluentOptions<ContextType extends Context = Context> {
+export interface GrammyFluentOptions<
+  ContextType extends Context = Context
+> {
   fluent: Fluent;
   defaultLocale?: LocaleId;
   localeNegotiator?: LocaleNegotiator<ContextType>;
@@ -29,7 +31,9 @@ export interface FluentContextFlavor {
 const fallbackLocale = 'en';
 
 
-export function useFluent<ContextType extends Context = Context>(
+export function useFluent<
+  ContextType extends Context = Context
+>(
   options: GrammyFluentOptions<ContextType>
 
 ): Middleware<ContextType> {

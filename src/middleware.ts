@@ -1,12 +1,19 @@
+import {
+  Context,
+  Fluent,
+  LocaleId,
+  Middleware,
+  NextFunction,
+  TranslationContext,
+} from "./deps.deno.ts";
 
-import { Fluent, LocaleId, TranslationContext } from '@moebius/fluent';
-import { Context, Middleware, NextFunction } from 'grammy';
-
-import { defaultLocaleNegotiator, LocaleNegotiator } from './locale-negotiator';
-
+import {
+  defaultLocaleNegotiator,
+  LocaleNegotiator,
+} from "./locale-negotiator.ts";
 
 export interface GrammyFluentOptions<
-  ContextType extends Context = Context
+  ContextType extends Context = Context,
 > {
   fluent: Fluent;
   defaultLocale?: LocaleId;
@@ -27,24 +34,18 @@ export interface FluentContextFlavor {
   t: TranslateFunction;
 }
 
-
-const fallbackLocale = 'en';
-
+const fallbackLocale = "en";
 
 export function useFluent<
-  ContextType extends Context = Context
+  ContextType extends Context = Context,
 >(
-  options: GrammyFluentOptions<ContextType>
-
+  options: GrammyFluentOptions<ContextType>,
 ): Middleware<ContextType> {
-
   const {
     fluent,
     defaultLocale = fallbackLocale,
     localeNegotiator = defaultLocaleNegotiator,
-
   } = options;
-
 
   /**
    * Middleware function that adds fluent functionality
@@ -52,10 +53,8 @@ export function useFluent<
    */
   return async function fluentMiddleware(
     context: ContextType,
-    next: NextFunction
-
+    next: NextFunction,
   ): Promise<void> {
-
     // A reference to the current translation function,
     // which could be changed dynamically
     let translate: TranslateFunction;
@@ -70,15 +69,18 @@ export function useFluent<
     );
 
     // Adding custom properties to the context
-    Object.assign(context, <FluentContextFlavor> {
-      fluent: {
-        instance: fluent,
-        renegotiateLocale: negotiateLocale,
-        useLocale,
+    Object.assign(
+      context,
+      <FluentContextFlavor> {
+        fluent: {
+          instance: fluent,
+          renegotiateLocale: negotiateLocale,
+          useLocale,
+        },
+        translate: translateWrapper,
+        t: translateWrapper,
       },
-      translate: translateWrapper,
-      t: translateWrapper,
-    });
+    );
 
     // This will negotiate locale initially and set
     // the translate function reference
@@ -86,14 +88,12 @@ export function useFluent<
 
     await next();
 
-
     /**
      * Calls locale negotiator to determine the locale
      * and updates the translate function reference to
      * use the determined locale.
      */
     async function negotiateLocale() {
-
       // Determining the locale to use for translations
       const locale = <LocaleId> (
         await localeNegotiator?.(context) ||
@@ -101,7 +101,6 @@ export function useFluent<
       );
 
       useLocale(locale);
-
     }
 
     /**
@@ -109,11 +108,7 @@ export function useFluent<
      * the specified locale.
      */
     function useLocale(locale: LocaleId) {
-
       translate = fluent.withLocale(locale);
-
     }
-
-  }
-
+  };
 }

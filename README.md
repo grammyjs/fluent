@@ -100,12 +100,18 @@ welcome = Welcome, {$name}, to the {-project-name}!
 
 ## Install
 
-Install the libraries:
+Node
 
 ```shell
 npm install --save @grammyjs/fluent @moebius/fluent
 ```
 
+Deno
+
+```ts
+import { Fluent } from "https://deno.land/x/better_fluent/mod.ts";
+import { useFluent, FluentContextFlavor } from "";
+```
 
 ## Prior knowledge
 
